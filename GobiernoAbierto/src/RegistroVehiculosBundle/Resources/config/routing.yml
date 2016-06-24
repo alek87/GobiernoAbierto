@@ -1,0 +1,4 @@
+ga_vehiculos:
+    resource: "@RegistroVehiculosBundle/Resources/config/routing/vehiculos.yml"
+    prefix:   /vehiculos
+

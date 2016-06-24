@@ -1,0 +1,24 @@
+vehiculos_index:
+    path:     /
+    defaults: { _controller: "RegistroVehiculosBundle:Vehiculos:index" }
+    methods:  GET
+
+vehiculos_show:
+    path:     /{id}/show
+    defaults: { _controller: "RegistroVehiculosBundle:Vehiculos:show" }
+    methods:  GET
+
+vehiculos_new:
+    path:     /new
+    defaults: { _controller: "RegistroVehiculosBundle:Vehiculos:new" }
+    methods:  [GET, POST]
+
+vehiculos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RegistroVehiculosBundle:Vehiculos:edit" }
+    methods:  [GET, POST]
+
+vehiculos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RegistroVehiculosBundle:Vehiculos:delete" }
+    methods:  DELETE

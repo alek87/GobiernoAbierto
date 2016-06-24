@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Conductores list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dni</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Direccion</th>
+                <th>Organismo</th>
+                <th>Categoria</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conductore in conductores %}
+            <tr>
+                <td><a href="{{ path('conductores_show', { 'id': conductore.id }) }}">{{ conductore.id }}</a></td>
+                <td>{{ conductore.dni }}</td>
+                <td>{{ conductore.nombre }}</td>
+                <td>{{ conductore.apellido }}</td>
+                <td>{{ conductore.direccion }}</td>
+                <td>{{ conductore.organismo }}</td>
+                <td>{{ conductore.categoria }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('conductores_show', { 'id': conductore.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('conductores_edit', { 'id': conductore.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('conductores_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

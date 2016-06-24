@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Vehiculos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nrovehiculo</th>
+                <th>Patente</th>
+                <th>Tipovehiculo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Capacidad</th>
+                <th>Motor</th>
+                <th>Puertas</th>
+                <th>Seriemotor</th>
+                <th>Estado</th>
+                <th>Fechaalta</th>
+                <th>Fechabaja</th>
+                <th>Fechamodif</th>
+                <th>Usuario</th>
+                <th>Localidad</th>
+                <th>Observacion</th>
+                <th>Horarioinicioactiv</th>
+                <th>Horariofinactiv</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehiculo in vehiculos %}
+            <tr>
+                <td><a href="{{ path('vehiculos_show', { 'id': vehiculo.id }) }}">{{ vehiculo.id }}</a></td>
+                <td>{{ vehiculo.nroVehiculo }}</td>
+                <td>{{ vehiculo.patente }}</td>
+                <td>{{ vehiculo.tipoVehiculo }}</td>
+                <td>{{ vehiculo.marca }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.color }}</td>
+                <td>{{ vehiculo.capacidad }}</td>
+                <td>{{ vehiculo.motor }}</td>
+                <td>{{ vehiculo.puertas }}</td>
+                <td>{{ vehiculo.serieMotor }}</td>
+                <td>{{ vehiculo.estado }}</td>
+                <td>{% if vehiculo.fechaAlta %}{{ vehiculo.fechaAlta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if vehiculo.fechaBaja %}{{ vehiculo.fechaBaja|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if vehiculo.fechaModif %}{{ vehiculo.fechaModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ vehiculo.usuario }}</td>
+                <td>{{ vehiculo.localidad }}</td>
+                <td>{{ vehiculo.observacion }}</td>
+                <td>{% if vehiculo.horarioInicioActiv %}{{ vehiculo.horarioInicioActiv|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if vehiculo.horarioFinActiv %}{{ vehiculo.horarioFinActiv|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('vehiculos_show', { 'id': vehiculo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('vehiculos_edit', { 'id': vehiculo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('vehiculos_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

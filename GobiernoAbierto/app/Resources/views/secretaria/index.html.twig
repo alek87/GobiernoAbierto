@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Secretaria list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Organismo</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Celular</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Servicios</th>
+                <th>Observaciones</th>
+                <th>Fechaalta</th>
+                <th>Fechabaja</th>
+                <th>Fechamodif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for secretarium in secretarias %}
+            <tr>
+                <td><a href="{{ path('secretaria_show', { 'id': secretarium.id }) }}">{{ secretarium.id }}</a></td>
+                <td>{{ secretarium.organismo }}</td>
+                <td>{{ secretarium.nombre }}</td>
+                <td>{{ secretarium.direccion }}</td>
+                <td>{{ secretarium.celular }}</td>
+                <td>{{ secretarium.telefono }}</td>
+                <td>{{ secretarium.email }}</td>
+                <td>{{ secretarium.servicios }}</td>
+                <td>{{ secretarium.observaciones }}</td>
+                <td>{% if secretarium.fechaAlta %}{{ secretarium.fechaAlta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if secretarium.fechaBaja %}{{ secretarium.fechaBaja|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if secretarium.fechaModif %}{{ secretarium.fechaModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('secretaria_show', { 'id': secretarium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('secretaria_edit', { 'id': secretarium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('secretaria_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

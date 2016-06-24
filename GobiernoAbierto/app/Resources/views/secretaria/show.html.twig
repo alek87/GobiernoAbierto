@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Secretaria</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ secretarium.id }}</td>
+            </tr>
+            <tr>
+                <th>Organismo</th>
+                <td>{{ secretarium.organismo }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ secretarium.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ secretarium.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Celular</th>
+                <td>{{ secretarium.celular }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ secretarium.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ secretarium.email }}</td>
+            </tr>
+            <tr>
+                <th>Servicios</th>
+                <td>{{ secretarium.servicios }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ secretarium.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{% if secretarium.fechaAlta %}{{ secretarium.fechaAlta|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechabaja</th>
+                <td>{% if secretarium.fechaBaja %}{{ secretarium.fechaBaja|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechamodif</th>
+                <td>{% if secretarium.fechaModif %}{{ secretarium.fechaModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('secretaria_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('secretaria_edit', { 'id': secretarium.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

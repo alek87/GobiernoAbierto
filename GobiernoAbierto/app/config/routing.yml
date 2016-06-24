@@ -1,0 +1,24 @@
+ga:
+    resource: "@RegistroVehiculosBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+ga_index:
+    resource: "@RegistroVehiculosBundle/Controller/"
+    type:     annotation
+    prefix:   /index
+
+ga_vehiculos:
+    resource: "@RegistroVehiculosBundle/Resources/config/routing/vehiculos.yml"
+    prefix:   /vehiculos
+
+ga_secretarias:
+    resource: "@RegistroVehiculosBundle/Resources/config/routing/secretaria.yml"
+    prefix:   /secretaria
+
+ga_conductores:
+    resource: "@RegistroVehiculosBundle/Resources/config/routing/conductores.yml"
+    prefix:   /conductores
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

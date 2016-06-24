@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Conductores</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ conductore.id }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ conductore.dni }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ conductore.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ conductore.apellido }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ conductore.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Organismo</th>
+                <td>{{ conductore.organismo }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ conductore.categoria }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('conductores_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('conductores_edit', { 'id': conductore.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
